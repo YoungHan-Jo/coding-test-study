@@ -4,40 +4,42 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class String4 {
 
-    public List<String> solution(List<String> list) {
-        List<String> answerList = new ArrayList<>();
+    private List<String> solution(List<String> list) {
+        List<String> answer = new ArrayList<>();
 
         for (String s : list) {
             char[] c = s.toCharArray();
 
-            int lt = 0, rt = s.length() -1;
+            int lt = 0, rt = s.length() - 1;
 
             while (lt < rt) {
-                char tmp = c[lt];
+                char temp = c[lt];
                 c[lt] = c[rt];
-                c[rt] = tmp;
+                c[rt] = temp;
                 lt++;
                 rt--;
             }
-
-            answerList.add(String.valueOf(c));
+            answer.add(String.valueOf(c));
         }
-
-        return answerList;
+        return answer;
     }
 
     public static void main(String[] args) {
-        Main T = new Main();
-        Scanner scanner = new Scanner(System.in);
-        int num = Integer.parseInt(scanner.nextLine());
+        String4 T = new String4();
+        Scanner sc = new Scanner(System.in);
+
+        int num = sc.nextInt();
         List<String> list = new ArrayList<>();
+
         for (int i = 0; i < num; i++) {
-            list.add(scanner.nextLine());
+            list.add(sc.next());
         }
+
         for (String s : T.solution(list)) {
             System.out.println(s);
         }
+
     }
 }
