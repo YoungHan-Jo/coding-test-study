@@ -2,20 +2,17 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class String7 {
 
     public static void main(String[] args) {
-        Main T = new Main();
+        String7 T = new String7();
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
+        String str = sc.next();
         System.out.println(T.solution(str));
     }
 
     private String solution(String str) {
-        str = str.toUpperCase().replaceAll("[^A-Z]","");
-
         String reverse = new StringBuilder(str).reverse().toString();
-
-        return str.equals(reverse) ? "YES" : "NO";
+        return str.equalsIgnoreCase(reverse) ? "YES" : "NO";
     }
 }
