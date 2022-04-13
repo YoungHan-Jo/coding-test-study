@@ -4,16 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
-
+public class String10Star {
+    
     public static void main(String[] args) {
-        Main T = new Main();
+        String10Star T = new String10Star();
         Scanner sc = new Scanner(System.in);
         String str = sc.next();
         String t = sc.next();
-
         System.out.println(T.solution(str,t));
-
     }
 
     private String solution(String str, String t) {
