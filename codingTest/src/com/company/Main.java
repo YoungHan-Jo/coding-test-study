@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,47 +7,43 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        String t = sc.next();
-
-        System.out.println(T.solution(str,t));
-
+        String str = sc.nextLine();
+        System.out.println(T.solution(str));
     }
 
-    private String solution(String str, String t) {
-        List<Integer> answerList = new ArrayList<>();
-        int p = 1000;
-
-        char[] s = str.toCharArray();
-
-        for (int i = 0; i < str.length(); ++i) {
-            if (s[i] != t.toCharArray()[0]) {
-                answerList.add(p += 1);
-            } else {
-                answerList.add(p = 0);
-            }
-        }
-
-        p = 1000;
-
-        for (int i = str.length() - 1; i >= 0; --i) {
-            if (s[i] != t.toCharArray()[0]) {
-                if (answerList.get(i) > (p += 1)) {
-                    answerList.set(i, p);
-                }
-            } else {
-                if (answerList.get(i) > (p = 0)) {
-                    answerList.set(i, p);
-                }
-            }
-        }
-
+    private String solution(String str) {
         String answer = "";
 
-        for (int i : answerList) {
-            answer += i + " ";
+        char[] s = str.toCharArray();
+        int count = 1;
+
+        for (int i = 0; i < s.length-1; ++i) {
+            if (i == s.length - 2) {
+                if (s[i] == s[i + 1]) {
+                    count = count + 1;
+                    answer = answer + s[i] + count;
+                } else {
+                    if (count == 1) {
+                        answer = answer + s[i] + s[i + 1];
+                    } else {
+                        answer = answer + s[i] + count + s[i + 1];
+                    }
+                }
+                break;
+            }
+            if (s[i] == s[i + 1]) {
+                count++;
+            } else {
+                if (count == 1) {
+                    answer = answer + s[i];
+                } else {
+                    answer = answer + s[i] + count;
+                    count = 1;
+                }
+            }
         }
 
         return answer;
     }
+
 }
