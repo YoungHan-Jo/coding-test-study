@@ -7,38 +7,27 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
-        char c = sc.next().charAt(0);
+        String str = sc.nextLine();
 
-        int[] solution = T.solution(str, c);
-        for (int i : solution) {
-            System.out.print(String.valueOf(i) + " ");
-        }
+        System.out.println(T.solution(str));
     }
 
-    private int[] solution(String str, char c) {
-        int[] answer = new int[str.length()];
-        char[] s = str.toCharArray();
-        int p = 1000;
-        for (int i = 0; i < str.length(); ++i) {
-            if (s[i] == c) {
-                answer[i] = (p = 0);
+    private String solution(String str) {
+        String answer = "";
+        str +=  " ";
+        int p = 1;
+        for (int i = 0; i < str.length()-1 ; ++i) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                p++;
             } else {
-                answer[i] = ++p;
-            }
-        }
-
-        p = 1000;
-        for (int i = str.length() - 1; i >= 0; --i) {
-            if (s[i] == c) {
-                answer[i] = (p = 0);
-            } else {
-                if (answer[i] > ++p) {
-                    answer[i] = p;
+                if (p == 1) {
+                    answer = answer + str.charAt(i);
+                } else {
+                    answer = answer +  str.charAt(i) + p;
                 }
+                p = 1;
             }
         }
         return answer;
     }
-
 }
