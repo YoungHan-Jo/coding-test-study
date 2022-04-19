@@ -2,10 +2,10 @@ package com.company;
 
 import java.util.Scanner;
 
-public class Main {
+public class String12Answer {
 
     public static void main(String[] args) {
-        Main T = new Main();
+        String12Answer T = new String12Answer();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         String str = sc.next();
@@ -14,10 +14,9 @@ public class Main {
 
     private String solution(int n, String str) {
         String answer = "";
-
         for (int i = 0; i < n; ++i) {
             String tmp = str.substring(0, 7).replace('#','1').replace('*','0');
-            int num = Integer.valueOf(tmp,2);
+            int num = Integer.valueOf(tmp, 2);
             answer += (char) num;
 
             str = str.substring(7);
