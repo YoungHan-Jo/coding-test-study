@@ -1,18 +1,21 @@
-package com.company;
+package com.company.string;
 
 import java.util.Scanner;
 
-public class String7 {
+public class String8 {
 
     public static void main(String[] args) {
-        String7 T = new String7();
+        String8 T = new String8();
         Scanner sc = new Scanner(System.in);
-        String str = sc.next();
+        String str = sc.nextLine();
         System.out.println(T.solution(str));
+
     }
 
     private String solution(String str) {
+        str = str.toUpperCase().replaceAll("[^A-Z]", "");
         String reverse = new StringBuilder(str).reverse().toString();
-        return str.equalsIgnoreCase(reverse) ? "YES" : "NO";
+
+        return str.equals(reverse) ? "YES" : "NO";
     }
 }
