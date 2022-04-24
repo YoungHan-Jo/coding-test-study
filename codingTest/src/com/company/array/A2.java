@@ -1,11 +1,11 @@
-package com.company;
+package com.company.array;
 
 import java.util.Scanner;
 
-public class Main {
+public class A2 {
 
     public static void main(String[] args) {
-        Main T = new Main();
+        A2 T = new A2();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[] arr = new int[n];
@@ -25,8 +25,6 @@ public class Main {
                 answer++;
             }
         }
-
         return answer;
     }
-
 }
