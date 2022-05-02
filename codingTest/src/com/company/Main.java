@@ -1,7 +1,6 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,34 +9,28 @@ public class Main {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        List<String> stringList = new ArrayList<>();
+        int[] arr = new int[n];
         for (int i = 0; i < n; ++i) {
-            stringList.add(sc.next());
+            arr[i] = sc.nextInt();
         }
-        for (Integer i : T.solution(stringList)) {
-            System.out.print(i + " ");
-        }
+
+        System.out.println(T.solution(n, arr));
 
     }
 
-    private List<Integer> solution(List<String> stringList) {
-        List<Integer> answer = new ArrayList<>();
+    private int solution(int n, int[] arr) {
+        int answer = 0;
+        int point = 0;
 
-        for (String str : stringList) {
-            int reverseInt = Integer.valueOf(new StringBuilder(str).reverse().toString());
-
-            if (isPrime(reverseInt)) answer.add(reverseInt);
+        for (int i = 0; i < n; ++i) {
+            if (arr[i] == 0) {
+                point = 0;
+                continue;
+            }
+            answer += ++point;
         }
 
         return answer;
-    }
-
-    private boolean isPrime(int num) {
-        int count = 0;
-        for (int i = 1; i <= num; i++) {
-            if (num % i == 0) count++;
-        }
-        return count == 2? true: false;
     }
 
 }
