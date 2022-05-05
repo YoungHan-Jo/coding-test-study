@@ -2,9 +2,9 @@ package com.company.array;
 
 import java.util.Scanner;
 
-public class A9 {
+public class A9Star {
     public static void main(String[] args) {
-        A9 T = new A9();
+        A9Star T = new A9Star();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[][] arr = new int[n][n];
