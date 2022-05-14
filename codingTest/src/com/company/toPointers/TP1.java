@@ -23,6 +23,8 @@ public class TP1 {
             System.out.print(i + " ");
         }
     }
+    
+
 
     private List<Integer> solution(int n, int m, int[] a, int[] b) {
         List<Integer> answer = new ArrayList<>();
