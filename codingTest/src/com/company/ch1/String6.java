@@ -16,15 +16,25 @@ public class String6 {
         String answer = "";
 
         for (int i = 0; i < str.length(); i++) {
-//            System.out.println(str.charAt(i) + " " + i + " " + str.indexOf(str.charAt(i)));
             if (str.indexOf(str.charAt(i)) == i) {
                 answer += str.charAt(i);
             }
         }
 
+        return answer;
+    }
 
+    // 풀이 2
+    private String solution(char[] c) {
+        String answer = "";
 
+        for (int i = 0; i < c.length; i++) {
+            if (answer.indexOf(c[i]) == -1) {
+                answer += c[i];
+            }
+        }
 
         return answer;
     }
+
 }
