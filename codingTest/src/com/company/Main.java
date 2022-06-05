@@ -12,10 +12,16 @@ public class Main {
         System.out.println(T.solution(str));
     }
 
-    private String solution(String str) {
-        str = str.toUpperCase().replaceAll("[^A-Z]", "");
-        String reverse = new StringBuilder(str).reverse().toString();
-        return str.equals(reverse) ? "YES" : "NO";
+    public int solution(String str) {
+        String answer = "";
+        char[] chars = str.toCharArray();
+
+        for (int i = 0; i < chars.length; ++i) {
+            if (Character.isDigit(chars[i])) {
+                answer += chars[i];
+            }
+        }
+        return Integer.valueOf(answer);
     }
 
 
