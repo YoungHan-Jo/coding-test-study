@@ -50,4 +50,35 @@ public class String10Star {
 
         return answer;
     }
+
+    private int[] solution2(String str, char c) {
+        int[] answer = new int[str.length()];
+
+        char[] chars = str.toCharArray();
+
+        int len = 100;
+
+        for (int i = 0; i < chars.length; ++i) {
+            if (chars[i] == c) {
+                len = 0;
+            }else{
+                len++;
+            }
+            answer[i] = len;
+        }
+
+        len = 100;
+
+        for (int i = chars.length - 1; i >= 0; --i) {
+            if (chars[i] == c) {
+                len = 0;
+            } else {
+                len++;
+            }
+            answer[i] = Math.min(answer[i], len);
+        }
+
+        return answer;
+    }
+
 }
