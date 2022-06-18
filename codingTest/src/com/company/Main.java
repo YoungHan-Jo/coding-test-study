@@ -23,7 +23,7 @@ public class Main {
             if (c[i] == c[i - 1]) {
                 cnt++;
             } else {
-                if (cnt > 1) {
+                if (cnt > 1) { 
                     answer += cnt;
                 }
                 answer += String.valueOf(c[i]);
