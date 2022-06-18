@@ -8,29 +8,29 @@ public class Main {
     public static void main(String[] args) {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        System.out.println(T.solution(str));
+        int n = sc.nextInt();
+        String[] arr = new String[n];
+        String str = sc.next() + " ";
+        for (int i = 0; i < n; i++) {
+            arr[i] = str.substring(0,7);
+            str = str.substring(7);
+        }
 
+        System.out.println(T.solution(arr));
 
     }
 
-    private String solution(String str) {
-        str += ' ';
-        char[] c = str.toCharArray();
-        String answer = String.valueOf(c[0]);
-        int cnt = 1;
-        for (int i = 1; i < c.length; ++i) {
-            if (c[i] == c[i - 1]) {
-                cnt++;
-            } else {
-                if (cnt > 1) { 
-                    answer += cnt;
-                }
-                answer += String.valueOf(c[i]);
-                cnt = 1;
-            }
+    private String solution(String[] arr) {
+        String answer = "";
+
+        for (int i = 0; i < arr.length ; i++) {
+            answer += getCharFromStringBinary(arr[i]);
         }
         return answer;
+    }
+    private char getCharFromStringBinary(String str) {
+        String replace = str.replace("#", "1").replace("*", "0");
+        return (char) (int) Integer.valueOf(replace, 2);
     }
 
 

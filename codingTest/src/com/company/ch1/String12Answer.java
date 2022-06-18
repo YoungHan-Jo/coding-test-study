@@ -1,5 +1,7 @@
 package com.company.ch1;
 
+import com.company.Main;
+
 import java.util.Scanner;
 
 public class String12Answer {
@@ -24,4 +26,30 @@ public class String12Answer {
 
         return answer;
     }
+
+
+    //==================================================
+
+    private String solution2(String[] arr) {
+        String answer = "";
+
+        for (int i = 0; i < arr.length ; i++) {
+            answer += getCharFromStringBinary(arr[i]);
+        }
+        return answer;
+    }
+    private char getCharFromStringBinary(String str) {
+        String replace = str.replace("#", "1").replace("*", "0");
+        return (char) (int) Integer.valueOf(replace, 2);
+    }
+
+
+
+
+
+
+
+
+
+
 }
