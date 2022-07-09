@@ -27,4 +27,16 @@ public class A2 {
         }
         return answer;
     }
+
+    private int solution2(int n, int[] arr) {
+        int count = 0;
+        int highest = Integer.MIN_VALUE;
+        for (int height : arr) {
+            if (height > highest) {
+                count++;
+                highest = height;
+            }
+        }
+        return count;
+    }
 }
