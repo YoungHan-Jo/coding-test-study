@@ -1,20 +1,19 @@
-package com.company;
-
+package com.company.ch1;
 
 import java.util.Scanner;
 
-public class Main {
+public class String6 {
 
     public static void main(String[] args) {
 
-        Main T = new Main();
+        String6 T = new String6();
         Scanner sc = new Scanner(System.in);
+
         String str = sc.next();
+
         String answer = T.solution(str);
         System.out.println(answer);
-
     }
-
 
     private String solution(String str) {
         String answer = "";
@@ -25,7 +24,7 @@ public class Main {
             }
         }
 
+
         return answer;
     }
-
 }
