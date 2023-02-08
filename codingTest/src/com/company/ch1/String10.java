@@ -14,7 +14,6 @@ public class String10 {
         for (int i : T.solution(str, t)) {
             System.out.print(i + " ");
         }
-
     }
 
     private int[] solution(String str, char t) {
