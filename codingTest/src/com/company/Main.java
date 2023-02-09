@@ -1,39 +1,42 @@
 package com.company;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        String str = sc.next();
 
-        System.out.println(T.solution(t, str));
+        int n = sc.nextInt();
+
+        List<Integer> arr = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            arr.add(sc.nextInt());
+        }
+
+        int answer = T.solution(arr);
+        System.out.println(answer);
 
     }
 
-    private String solution(int t, String str) {
-        String answer = "";
+    private int solution(List<Integer> arr) {
+        int answer = 0;
 
-        for (int i = 0; i < t; i++) {
+        int t = 0;
 
-            String tmp = str.substring(0, 7);
-
-            tmp = tmp.replace("*", "0").replace("#","1");
-
-
-            int num = Integer.parseInt(tmp, 2);
-
-            answer += (char) num;
-
-            str = str.substring(7);
-
+        for (Integer i : arr) {
+            if (i > t) {
+                answer++;
+                t = i;
+            }
         }
 
         return answer;
     }
+
 }
