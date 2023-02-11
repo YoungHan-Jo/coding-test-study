@@ -1,13 +1,12 @@
-package com.company;
-
+package com.company.ch2;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Array6 {
     public static void main(String[] args) {
-        Main T = new Main();
+        Array6 T = new Array6();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         List<String> arr = new ArrayList<>();
@@ -18,36 +17,37 @@ public class Main {
         for (Integer i : answer) {
             System.out.print(i + " ");
         }
-
     }
 
     private List<Integer> solution(List<String> arr) {
         List<Integer> answer = new ArrayList<>();
 
-        for (String s : arr) {
-            int num = getReverseNum(s);
+        for (String str : arr) {
+            int num = getReverseNum(str);
 
             if (isPrime(num)) {
                 answer.add(num);
             }
         }
+
         return answer;
     }
 
-    private boolean isPrime(int num) {
-        int cnt = 0;
-
-        for (int i = 1; i < num; i++) {
-            if (num % i == 0) {
-                cnt++;
-            }
-        }
-        return cnt == 1;
+    private int getReverseNum(String str) {
+        String strReverse = new StringBuilder(str).reverse().toString();
+        int num = Integer.parseInt(strReverse);
+        return num;
     }
 
-    private int getReverseNum(String s) {
-        String reverse = new StringBuilder(s).reverse().toString();
-        int num = Integer.parseInt(reverse);
-        return num;
+    private boolean isPrime(int num) {
+        if (num == 1) {
+            return false;
+        }
+        for (int i = 2; i < num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
