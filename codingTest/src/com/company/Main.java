@@ -11,29 +11,50 @@ public class Main {
         Main T = new Main();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        List<Integer> arr = new ArrayList<>();
+
+        int[][] arr = new int[n][n];
+
         for (int i = 0; i < n; i++) {
-            arr.add(sc.nextInt());
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
         }
 
-        List<Integer> answer = T.solution(arr);
-        for (Integer i : answer) {
-            System.out.print(i + " ");
-        }
+        int answer = T.solution(n, arr);
+        System.out.println(answer);
     }
 
-    private List<Integer> solution(List<Integer> arr) {
-        List<Integer> answer = new ArrayList<>();
+    private int solution(int n, int[][] arr) {
+        int answer = 0;
 
-        for (Integer x : arr) {
-            int rank = 1;
-            for (Integer y : arr) {
-                if (x < y) {
-                    rank++;
-                }
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += arr[i][j];
             }
-            answer.add(rank);
+            answer = Math.max(answer, sum);
         }
+
+        for (int i = 0; i < n; i++) {
+            int sum = 0;
+            for (int j = 0; j < n; j++) {
+                sum += arr[j][i];
+            }
+            answer = Math.max(answer, sum);
+        }
+
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i][i];
+        }
+        answer = Math.max(answer, sum);
+
+        sum = 0;
+        for (int i = 0; i < n; i++) {
+            sum += arr[i][n - 1 - i];
+        }
+
+        answer = Math.max(answer, sum);
 
         return answer;
     }
