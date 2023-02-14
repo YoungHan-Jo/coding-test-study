@@ -1,12 +1,10 @@
-package com.company;
-
+package com.company.ch2;
 
 import java.util.Scanner;
 
-public class Main {
-
+public class Array10 {
     public static void main(String[] args) {
-        Main T = new Main();
+        Array10 T = new Array10();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
