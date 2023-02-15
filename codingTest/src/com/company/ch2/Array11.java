@@ -1,12 +1,10 @@
-package com.company;
-
+package com.company.ch2;
 
 import java.util.Scanner;
 
-public class Main {
-
+public class Array11 {
     public static void main(String[] args) {
-        Main T = new Main();
+        Array11 T = new Array11();
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
 
@@ -19,7 +17,6 @@ public class Main {
         }
 
         int answer = T.solution(n, arr);
-
         System.out.println(answer);
 
     }
@@ -30,10 +27,8 @@ public class Main {
         int max = Integer.MIN_VALUE;
 
         for (int i = 0; i < n; i++) {
-
             int sum = 0;
             for (int j = 0; j < n; j++) {
-
                 for (int k = 0; k < 5; k++) {
                     if (arr[i][k] == arr[j][k]) {
                         sum++;
@@ -45,9 +40,10 @@ public class Main {
                 max = sum;
                 answer = i + 1;
             }
+
         }
+
 
         return answer;
     }
-
 }
